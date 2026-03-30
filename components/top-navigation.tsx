@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { SimulationMode } from '@/app/page'
+import { useEffect, useState } from 'react'
 
 interface TopNavigationProps {
   mode: SimulationMode
@@ -17,6 +18,11 @@ export default function TopNavigation({
   onBufferSizeChange,
 }: TopNavigationProps) {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <header className="border-b border-border bg-card">
@@ -77,11 +83,16 @@ export default function TopNavigation({
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               variant="outline"
               size="icon"
+              suppressHydrationWarning
             >
-              {theme === 'dark' ? (
-                <Sun className="h-4 w-4" />
+              {mounted ? (
+                theme === 'dark' ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )
               ) : (
-                <Moon className="h-4 w-4" />
+                <span className="h-4 w-4" />
               )}
             </Button>
           </div>

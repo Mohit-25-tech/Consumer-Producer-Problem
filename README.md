@@ -1,5 +1,7 @@
 ## Producer–Consumer Visualization
 
+🔗 **Live Demo**: [https://consumer-producer-problem.vercel.app/](https://consumer-producer-problem.vercel.app/)
+
 This project is an interactive visualization of the classic **Producer–Consumer problem**, implemented as a modern web app.
 
 You can explore two variants:

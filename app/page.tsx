@@ -179,8 +179,6 @@ export default function Page() {
 }
 
 // Simulation Logic
-let simulationCounter = 0
-
 function executeStep(currentState: SimulationState, mode: SimulationMode): SimulationState {
   const state = { ...currentState }
   state.step += 1
